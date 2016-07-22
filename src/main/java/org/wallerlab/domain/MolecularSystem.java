@@ -31,10 +31,10 @@ public class MolecularSystem {
 		this.molecules = molecules;
 		this.numberOfMolecules = molecules.size();
 		this.numberOfAtoms = molecules.stream()
-									  .flatMap(molecule ->
-											  		molecule.getAtoms()
-															.stream())
-										.count();
+					      .flatMap(molecule ->
+						          molecule.getAtoms()
+								  .stream())
+					      .count();
 	}
 
 
