@@ -45,7 +45,7 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
 
-k jacocoRootReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
+task jacocoRootReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
     dependsOn = subprojects.test
     additionalSourceDirs = files(sourceSets.main.allSource.srcDirs)
     sourceDirectories = files(sourceSets.main.allSource.srcDirs)
