@@ -1,4 +1,6 @@
 # Pdb2Neo4j
+[![Build Status](https://travis-ci.org/wallerlab/reaktor.svg?branch=master)](https://travis-ci.org/wallerlab/reaktor)
+[![Coverage Status](https://coveralls.io/repos/github/wallerlab/reaktor/badge.svg?branch=master)](https://coveralls.io/github/wallerlab/reaktor?branch=master)
 
 Bootstrap Graph DB with PDB xml files
 
