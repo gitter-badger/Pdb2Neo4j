@@ -2,13 +2,7 @@ package org.wallerlab.config;
 
 import java.io.IOException;
 
-import javax.xml.bind.JAXBElement;
-
 import org.springframework.batch.item.adapter.ItemProcessorAdapter;
-import org.springframework.batch.item.data.Neo4jItemWriter;
-import org.springframework.data.neo4j.template.Neo4jOperations;
-import org.springframework.data.neo4j.template.Neo4jTemplate;
-import org.wallerlab.domain.MolecularSystem;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -110,12 +104,5 @@ public class BatchConfig{
 		processor.setTargetMethod("translate");
 		return (ItemProcessor) processor;
 	}
-
-	/*@Bean
-	ItemWriter itemWriter(){
-		Neo4jItemWriter<MolecularSystem> itemWriter = new Neo4jItemWriter<>();
-		itemWriter.setTemplate(context.getBean(Neo4jTemplate.class));
-		return (ItemWriter<MolecularSystem>) itemWriter;
-	}*/
 
 }
