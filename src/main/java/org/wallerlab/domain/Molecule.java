@@ -9,7 +9,8 @@ import org.neo4j.ogm.annotation.*;
  * 
  * @author Christian Ouali Turki
  *
- */@NodeEntity
+ */
+@NodeEntity
 public class Molecule {
 
 	@GraphId

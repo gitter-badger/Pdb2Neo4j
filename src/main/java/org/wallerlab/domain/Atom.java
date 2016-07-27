@@ -20,9 +20,9 @@ public class Atom {
 
 	private Double x;
 
-	private  Double y;
+	private Double y;
 
-	private  Double z;
+	private Double z;
 
 	private String resId;
 
