@@ -1,4 +1,5 @@
-description= 'Pdb2Neo4j'
+
+
 
 buildscript {
     repositories {
@@ -11,13 +12,16 @@ buildscript {
     }
 }
 
+
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
+
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
+apply plugin: 'spring-boot'
 apply plugin: 'io.spring.dependency-management'
+
+
+description= 'Pdb2Neo4j'
 
 
 repositories {
@@ -53,36 +57,16 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.14'
 }
 
-task jacocoRootReport(type: org.gradle.testing.jacoco.tasks.JacocoReport) {
-    dependsOn = subprojects.test
-    additionalSourceDirs = files(sourceSets.main.allSource.srcDirs)
-    sourceDirectories = files(sourceSets.main.allSource.srcDirs)
-    classDirectories = files(sourceSets.main.output)
-    executionData = files(jacocoTestReport.executionData)
+jacocoTestReport {
     reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
         html.enabled = true
-        xml.enabled = true
-        csv.enabled = false
-    }
-    onlyIf = {
-        true
-    }
-    doFirst {
-        executionData = files(executionData.findAll {
-            it.exists()
-        })
-    }
-
-  afterEvaluate {
-        classDirectories = files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: ['**/xml_cml/**'])
-            })
     }
 }
 
 coveralls {
   sourceDirs = subprojects.sourceSets.main.allSource.srcDirs.flatten()
-  jacocoReportPath = "${buildDir}/reports/jacoco/jacocoRootReport/jacocoRootReport.xml"
+  jacocoReportPath = "${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
 }
 
 jar {

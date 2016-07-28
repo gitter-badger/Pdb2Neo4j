@@ -1,4 +1,4 @@
-package org.wallerlab.service
+package org.wallerlab.services
 
 import spock.lang.*
 
