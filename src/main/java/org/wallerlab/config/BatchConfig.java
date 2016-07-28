@@ -24,7 +24,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
 /**
  * In this class all the batch jobs and steps are configured.
  *  - bootstrap job: adding, updating data from local files to neo4j database
@@ -46,6 +45,8 @@ public class BatchConfig{
 	 @Autowired
 	 ConfigurableApplicationContext context;
 
+	private static final String xml_directory = "file:/Users/waller/pdb/**/*.xml";
+
 	@Autowired
 	@Qualifier("bootstrapStep")
 	private Step bootstrapStep;
@@ -59,7 +60,11 @@ public class BatchConfig{
 	 */
 	@Bean
 	public Job bootstrapJob(JobBuilderFactory jbf) throws IOException {
-		return jbf.get("bootstrap").incrementer(new RunIdIncrementer()).flow(bootstrapStep).end().build();
+		return jbf.get("bootstrap")
+				  .incrementer(new RunIdIncrementer())
+				  .flow(bootstrapStep)
+				  .end()
+				  .build();
 	}
 
 	/**
@@ -90,7 +95,7 @@ public class BatchConfig{
 	public MultiResourceItemReader multiReader() throws IOException {
 		MultiResourceItemReader reader = new MultiResourceItemReader();
 		PathMatchingResourcePatternResolver pathMatchinResolver = new PathMatchingResourcePatternResolver();
-		Resource[] resources = pathMatchinResolver.getResources("file:/Users/waller/pdb/**/*.xml");
+		Resource[] resources = pathMatchinResolver.getResources(xml_directory);
 		for(Resource resource :resources)
 			System.out.println("Resource found: " + resource);
 		reader.setResources(resources);

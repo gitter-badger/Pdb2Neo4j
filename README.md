@@ -16,7 +16,7 @@ Clone this repo:
 
 `./gradlew bootRun`
 
-XML PDB files placed under
+Edit the location  of your XML PDB files in the BatchConfig file.
 `src/main/resources/pdb`
 will be bootstrapped into the DB running on your localhost.
 

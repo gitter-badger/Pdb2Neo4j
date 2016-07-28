@@ -21,11 +21,10 @@ import javax.xml.bind.Unmarshaller;
  */
 @Service
 public class Reader implements ResourceAwareItemReaderItemStream<JAXBElement>{
-	
-	public Reader() {
-	}
 
 	private Resource resource;
+
+	public Reader(){}
 
 	/*
 	 * Implemented read method.
@@ -42,6 +41,11 @@ public class Reader implements ResourceAwareItemReaderItemStream<JAXBElement>{
 		}else{
 			return null;
 		}
+	}
+
+	@Override
+	public void setResource(Resource resource) {
+		this.resource=resource;
 	}
 
 	@Override
@@ -62,9 +66,6 @@ public class Reader implements ResourceAwareItemReaderItemStream<JAXBElement>{
 		
 	}
 
-	@Override
-	public void setResource(Resource resource) {
-		this.resource=resource;
-	}
+
 	
 }

@@ -17,7 +17,9 @@ public class MolecularSystem {
 	private Long id;
 
 	private String name;
+
 	private Integer numberOfMolecules;
+
 	private Long numberOfAtoms;
 
 	/*
