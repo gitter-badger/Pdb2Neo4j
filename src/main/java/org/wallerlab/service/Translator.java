@@ -19,26 +19,17 @@ public class Translator {
         return new MolecularSystem(item.getValue().getDatablockName(), molecules);
     }
 
-    public String getMoleculeName(Molecule molecule) {
-        return molecule.getName().substring(0, 4);
-    }
-
-
     public Set<Molecule> translateToMolecule(JAXBElement<DatablockType> item) {
         Integer solventCounter = 0;
         Integer singleAtomCounter = 0;
-
         Set<Atom> atoms = translateToAtom(item);
         Set<Molecule> molecules = new HashSet<>();
-
         Molecule molecule = new Molecule("test", atoms);
         molecules.add(molecule);
         return molecules;
     }
 
-
     public Set<Atom> translateToAtom(JAXBElement<DatablockType> item) {
-
         return IntStream.range(0, item.getValue().getAtomSiteCategory().getAtomSite().size())
                 .mapToObj(i -> {
                     AtomSiteType.AtomSite atom = item.getValue().getAtomSiteCategory().getAtomSite().get(i);

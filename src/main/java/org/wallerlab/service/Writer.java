@@ -7,11 +7,9 @@ import java.util.List;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-/**
- * Created by waller on 27/07/16.
- */
+
 @Service
-public class Neo4jItemWriter implements ItemWriter<MolecularSystem> {
+public class Writer implements ItemWriter<MolecularSystem> {
 
     @Autowired MolecularSystemRepo msr;
 

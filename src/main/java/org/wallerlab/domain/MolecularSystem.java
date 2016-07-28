@@ -17,8 +17,8 @@ public class MolecularSystem {
 	private Long id;
 
 	private String name;
-	public Integer numberOfMolecules;
-	public Long numberOfAtoms;
+	private Integer numberOfMolecules;
+	private Long numberOfAtoms;
 
 	/*
 	 * Set of molecules. @Relationship enables the relation between two domain models.
@@ -32,8 +32,8 @@ public class MolecularSystem {
 		this.numberOfMolecules = molecules.size();
 		this.numberOfAtoms = molecules.stream()
 					      .flatMap(molecule ->
-						          molecule.getAtoms()
-								  .stream())
+						         	 molecule.getAtoms()
+								 		     .stream())
 					      .count();
 	}
 

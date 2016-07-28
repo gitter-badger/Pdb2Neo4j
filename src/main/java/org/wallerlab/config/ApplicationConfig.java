@@ -14,13 +14,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class ApplicationConfig {
 
-	@Bean
-	public SessionFactory sessionFactory() {
+	@Bean public SessionFactory sessionFactory() {
 		return new SessionFactory("org.wallerlab.domain");
 	}
 
-	@Bean
-	public Neo4jTransactionManager transactionManager() {
+	@Bean public Neo4jTransactionManager transactionManager() {
 		return new Neo4jTransactionManager(sessionFactory());
 	}
 

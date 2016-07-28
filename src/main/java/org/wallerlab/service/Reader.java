@@ -15,7 +15,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Unmarshaller;
 
 /**
- * ResourceAwareItemReaderItemStream for reading a pdbml file. For bootstrapStep.
+ * ResourceAwareItemReaderItemStream for reading a pdbml file.
  *
  * @author Christian Ouali Turki
  */
