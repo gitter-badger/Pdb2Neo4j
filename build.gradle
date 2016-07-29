@@ -14,7 +14,7 @@ buildscript {
 
 
 apply plugin: 'java'
-
+apply plugin: 'groovy'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'spring-boot'
