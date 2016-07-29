@@ -19,6 +19,6 @@ class AtomSpec extends Specification{
         atom.getResId() == "test"
         atom.getChain() == "test1"
         atom.getGroup() == "test2"
-
     }
+
 }

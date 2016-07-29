@@ -5,6 +5,7 @@ import org.wallerlab.pdbml.v40.generated.AtomSiteType;
 import org.wallerlab.pdbml.v40.generated.DatablockType;
 
 import javax.xml.bind.JAXBElement;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.IntStream;
@@ -33,6 +34,7 @@ public class Translator {
         return IntStream.range(0, item.getValue().getAtomSiteCategory().getAtomSite().size())
                 .mapToObj(i -> {
                     AtomSiteType.AtomSite atom = item.getValue().getAtomSiteCategory().getAtomSite().get(i);
+                    System.out.println(" element is " + atom.getGroupPDB().getValue());
                     Double x = atom.getCartnX().getValue().getValue().doubleValue();
                     Double y = atom.getCartnY().getValue().getValue().doubleValue();
                     Double z = atom.getCartnZ().getValue().getValue().doubleValue();
