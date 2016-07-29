@@ -17,6 +17,8 @@ class MoleculeSpec extends Specification{
         then:
         molecule.getName() == "Test"
         molecule.getAtoms().size() == 1
+        molecule.id == null //neo4j
+        molecule.toString()
 
     }
 }

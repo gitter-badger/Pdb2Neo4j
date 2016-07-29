@@ -19,6 +19,8 @@ class AtomSpec extends Specification{
         atom.getResId() == "test"
         atom.getChain() == "test1"
         atom.getGroup() == "test2"
+        atom.toString()
+        atom.getId() == null //neo4j
     }
 
 }
