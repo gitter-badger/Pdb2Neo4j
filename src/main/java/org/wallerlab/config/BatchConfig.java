@@ -2,6 +2,7 @@ package org.wallerlab.config;
 
 import java.io.IOException;
 
+import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.adapter.ItemProcessorAdapter;
 
 import org.springframework.batch.core.Job;
@@ -23,6 +24,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.wallerlab.service.Translator;
+
+import javax.xml.bind.JAXBElement;
 
 /**
  * In this class all the batch jobs and steps are configured.
@@ -50,6 +54,12 @@ public class BatchConfig{
 	@Autowired
 	@Qualifier("bootstrapStep")
 	private Step bootstrapStep;
+
+	@Autowired
+	private Translator translator;
+
+	@Autowired
+	private ResourceAwareItemReaderItemStream<JAXBElement> itemReader;
 
 	/**
 	 * Bean for building the bootstrap job executing bootstrapStep.
@@ -96,17 +106,15 @@ public class BatchConfig{
 		MultiResourceItemReader reader = new MultiResourceItemReader();
 		PathMatchingResourcePatternResolver pathMatchinResolver = new PathMatchingResourcePatternResolver();
 		Resource[] resources = pathMatchinResolver.getResources(xml_directory);
-		for(Resource resource :resources)
-			System.out.println("Resource found: " + resource);
 		reader.setResources(resources);
-		reader.setDelegate((ResourceAwareItemReaderItemStream) context.getBean("reader"));
+		reader.setDelegate((ResourceAwareItemReaderItemStream) itemReader);
 		return reader;
 	}
 
 	@Bean
 	ItemProcessor itemProcessor(){
 		ItemProcessorAdapter processor = new ItemProcessorAdapter<>();
-		processor.setTargetObject(context.getBean("translator"));
+		processor.setTargetObject(translator);
 		processor.setTargetMethod("translate");
 		return (ItemProcessor) processor;
 	}
