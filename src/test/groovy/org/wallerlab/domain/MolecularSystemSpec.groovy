@@ -24,5 +24,7 @@ class MolecularSystemSpec extends Specification{
         ms.getNumberOfAtoms() == 2
         ms.getNumberOfMolecules() == 1
         ms.toString()
+        ms.getName() == "test"
+        ms.getId() ==null //this is for neo4j
     }
 }
