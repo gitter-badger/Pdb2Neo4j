@@ -16,9 +16,9 @@ public class Molecule {
 	@GraphId
 	private Long id;
 	
-	private String name;
+	private final String name;
 
-	public Integer atomCount = 0;
+	public final Integer atomCount;
 	
 	/*
 	 * Set of atoms. @Relationship enables the relation between two domain models.
@@ -26,10 +26,10 @@ public class Molecule {
 	@Relationship(type="HAS",direction=Relationship.UNDIRECTED)
 	public Set<Atom> atoms;
 
-
 	public Molecule(String name, Set<Atom> atoms) {
 		this.name = name;
 		this.atoms = atoms;
+		this.atomCount = atoms.size();
 	}
 
 	public String getName() {

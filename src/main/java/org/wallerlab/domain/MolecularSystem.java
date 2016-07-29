@@ -16,11 +16,11 @@ public class MolecularSystem {
 	@GraphId
 	private Long id;
 
-	private String name;
+	private final String name;
 
-	private Integer numberOfMolecules;
+	private final Integer numberOfMolecules;
 
-	private Long numberOfAtoms;
+	private final Long numberOfAtoms;
 
 	/*
 	 * Set of molecules. @Relationship enables the relation between two domain models.
@@ -44,9 +44,6 @@ public class MolecularSystem {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getName() {
 		return name;

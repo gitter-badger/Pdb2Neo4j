@@ -48,6 +48,10 @@ dependencies {
     compile 'org.springframework.data:spring-data-neo4j:4.2.0.BUILD-SNAPSHOT'
 	compile 'org.hibernate:hibernate-validator'
 
+    //This is to allow mocking concrete classes
+    compile group: 'cglib', name: 'cglib-nodep', version: '3.2.4'
+    compile group: 'org.objenesis', name: 'objenesis', version: '2.4'
+
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-1'
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile("junit:junit")
@@ -58,9 +62,17 @@ task wrapper(type: Wrapper) {
 }
 
 jacocoTestReport {
+
+
     reports {
         xml.enabled = true // coveralls plugin depends on xml format report
         html.enabled = true
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['**/pdbml/**'])
+        })
     }
 }
 

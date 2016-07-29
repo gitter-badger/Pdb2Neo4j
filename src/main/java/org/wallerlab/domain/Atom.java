@@ -16,19 +16,19 @@ public class Atom {
 	@GraphId
 	private Long id;
 
-	private String element;
+	private final String element;
 
-	private Double x;
+	private final Double x;
 
-	private Double y;
+	private final Double y;
 
-	private Double z;
+	private final Double z;
 
-	private String resId;
+	private final String resId;
 
-	private String chain;
+	private final String chain;
 
-	private String group;
+	private final String group;
 
 	public Atom(String element, Double x,Double y, Double z, String resId,String chain, String group) {
 		this.element = element;
