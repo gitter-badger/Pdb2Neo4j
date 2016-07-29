@@ -43,12 +43,6 @@ import javax.xml.bind.JAXBElement;
 @ComponentScan("org.wallerlab")
 public class BatchConfig{
 
-	/**
-	 * getting copy of application context
-	 */
-	 @Autowired
-	 ConfigurableApplicationContext context;
-
 	private static final String xml_directory = "file:/Users/waller/pdb/**/*.xml";
 
 	@Autowired
@@ -60,6 +54,9 @@ public class BatchConfig{
 
 	@Autowired
 	private ResourceAwareItemReaderItemStream<JAXBElement> itemReader;
+
+	@Autowired
+	private ItemWriter writer;
 
 	/**
 	 * Bean for building the bootstrap job executing bootstrapStep.
@@ -89,7 +86,7 @@ public class BatchConfig{
 		return sbf.get("bootstrapStep").chunk(1)
 				.reader(multiReader())
 				.processor(itemProcessor())
-				.writer((ItemWriter)context.getBean("writer"))
+				.writer(writer)
 				.build();
 	}
 
