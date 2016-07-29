@@ -21,6 +21,8 @@ class MolecularSystemSpec extends Specification{
 
         then:
         ms.getMolecules().size() == 1
-
+        ms.getNumberOfAtoms() == 2
+        ms.getNumberOfMolecules() == 1
+        ms.toString()
     }
 }

@@ -34,7 +34,6 @@ public class Translator {
         return IntStream.range(0, item.getValue().getAtomSiteCategory().getAtomSite().size())
                 .mapToObj(i -> {
                     AtomSiteType.AtomSite atom = item.getValue().getAtomSiteCategory().getAtomSite().get(i);
-                    System.out.println(" element is " + atom.getGroupPDB().getValue());
                     Double x = atom.getCartnX().getValue().getValue().doubleValue();
                     Double y = atom.getCartnY().getValue().getValue().doubleValue();
                     Double z = atom.getCartnZ().getValue().getValue().doubleValue();
