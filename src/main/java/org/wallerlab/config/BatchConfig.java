@@ -38,7 +38,7 @@ import java.io.IOException;
 @ComponentScan("org.wallerlab")
 public class BatchConfig{
 
-	private static final String xml_directory = "file:src/test/resources/*.xml";
+	private static final String xml_directory = "file:src/integTest/resources/*.xml";
 
 	@Autowired
     ConfigurableApplicationContext context;
