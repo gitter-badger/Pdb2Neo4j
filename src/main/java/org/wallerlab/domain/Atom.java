@@ -1,6 +1,7 @@
 package org.wallerlab.domain;
 
-import org.neo4j.ogm.annotation.*;
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.NodeEntity;
 
 /**
  * This domain model is for an atom of a PDBml file.

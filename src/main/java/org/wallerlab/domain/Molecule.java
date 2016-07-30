@@ -1,7 +1,10 @@
 package org.wallerlab.domain;
 
+import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+
 import java.util.Set;
-import org.neo4j.ogm.annotation.*;
 
 /**
  * This domain model is adjusted a molecule of a pdbml file. Is set as

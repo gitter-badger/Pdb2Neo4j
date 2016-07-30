@@ -1,15 +1,17 @@
 package org.wallerlab.service;
 
-import org.wallerlab.domain.*;
+import org.springframework.stereotype.Service;
+import org.wallerlab.domain.Atom;
+import org.wallerlab.domain.MolecularSystem;
+import org.wallerlab.domain.Molecule;
 import org.wallerlab.pdbml.v40.generated.AtomSiteType;
 import org.wallerlab.pdbml.v40.generated.DatablockType;
 
 import javax.xml.bind.JAXBElement;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.IntStream;
-import org.springframework.stereotype.Service;
+
 import static java.util.stream.Collectors.toSet;
 
 @Service

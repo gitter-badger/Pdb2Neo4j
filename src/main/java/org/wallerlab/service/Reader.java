@@ -1,10 +1,6 @@
 package org.wallerlab.service;
 
-import org.springframework.batch.item.ExecutionContext;
-import org.springframework.batch.item.ItemStreamException;
-import org.springframework.batch.item.NonTransientResourceException;
-import org.springframework.batch.item.ParseException;
-import org.springframework.batch.item.UnexpectedInputException;
+import org.springframework.batch.item.*;
 import org.springframework.batch.item.file.ResourceAwareItemReaderItemStream;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -66,7 +62,4 @@ public class Reader implements ResourceAwareItemReaderItemStream<JAXBElement>{
 		
 	}
 
-
-
-	
 }

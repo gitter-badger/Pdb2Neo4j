@@ -1,12 +1,12 @@
 package org.wallerlab.service;
 
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.wallerlab.domain.MolecularSystem;
 import org.wallerlab.repo.MolecularSystemRepo;
 
 import java.util.List;
-import org.springframework.batch.item.ItemWriter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class Writer implements ItemWriter<MolecularSystem> {
