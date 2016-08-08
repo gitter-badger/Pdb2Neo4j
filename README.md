@@ -6,7 +6,11 @@ Bootstrap Graph DB with PDB xml files
 
 Download and start a [`Neo4J server`](http://neo4j.com)
 
-Set password to be wallerlab
+Open this url
+
+http://localhost:7474/browser/
+
+Set username: neo4j and password: wallerlab
 
 Clone this repo:
 
@@ -17,7 +21,11 @@ Clone this repo:
 `./gradlew bootRun`
 
 Edit the location  of your XML PDB files in the BatchConfig file.
-`src/main/resources/pdb`
+
+by default:
+
+`src/integTest/resources/*.xml`
+
 will be bootstrapped into the DB running on your localhost.
 
 
