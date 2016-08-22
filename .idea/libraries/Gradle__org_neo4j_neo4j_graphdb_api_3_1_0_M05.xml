@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.neo4j:neo4j-graphdb-api:3.1.0-M05">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.neo4j/neo4j-graphdb-api/3.1.0-M05/db4f856ee6a286ed82675f65b35abe57cc49c3b/neo4j-graphdb-api-3.1.0-M05.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.neo4j/neo4j-graphdb-api/3.1.0-M05/297b430ee87ae7dd23cfa5ee1f1be3f4a835745e/neo4j-graphdb-api-3.1.0-M05-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

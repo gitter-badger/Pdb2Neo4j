@@ -8,6 +8,7 @@ buildscript {
         classpath "org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3"
         classpath 'io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE'
         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.10'
     }
 }
 
@@ -18,6 +19,8 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'jacoco'
 apply plugin: 'com.github.kt3k.coveralls'
 apply plugin: 'com.bmuschko.nexus'
+apply plugin: "info.solidsoft.pitest"
+
 
 group = "org.wallerlab"
 version = '0.0.1'
@@ -151,4 +154,14 @@ nexus {
     repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
     snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
 }
+
+pitest {
+    enableDefaultIncrementalAnalysis = true
+    testSourceSets = [sourceSets.test, sourceSets.integrationTest]
+    mainSourceSets = [sourceSets.main, sourceSets.additionalMain]
+    jvmArgs = ['-Xmx1024m']
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+}
+
 
