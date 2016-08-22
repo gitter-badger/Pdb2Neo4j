@@ -1,4 +1,6 @@
 # Pdb2Neo4j
+
+[![Join the chat at https://gitter.im/wallerlab/Pdb2Neo4j](https://badges.gitter.im/wallerlab/Pdb2Neo4j.svg)](https://gitter.im/wallerlab/Pdb2Neo4j?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/wallerlab/Pdb2Neo4j.svg?branch=master)](https://travis-ci.org/wallerlab/Pdb2Neo4j)
 [![Coverage Status](https://coveralls.io/repos/github/wallerlab/Pdb2Neo4j/badge.svg?branch=master)](https://coveralls.io/github/wallerlab/Pdb2Neo4j?branch=master)
 
